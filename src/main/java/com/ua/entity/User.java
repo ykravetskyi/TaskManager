@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -145,5 +146,11 @@ public class User implements UserDetails {
     }
 
     //    --------------------------------------------------------
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.DETACH,
+            mappedBy = "users"
+    )
+    List<Task> tasks;
 
 }

@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder> inMemoryConfigurer() {
         return new InMemoryUserDetailsManagerConfigurer<>();
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder manager,
                                 AuthenticationProvider provider) throws Exception {
@@ -58,10 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/login").anonymous()
                 .antMatchers("/registration").anonymous()
+                .antMatchers("/reg/new_u").anonymous()
                 .antMatchers("/logout").permitAll()
                 .antMatchers("/").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/home").hasAnyRole("USER", "ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers("/addTask").hasAnyRole("USER", "ADMIN")
+//                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
