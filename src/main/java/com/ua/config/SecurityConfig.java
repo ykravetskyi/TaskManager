@@ -66,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/home").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/addTask").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/share/task/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/task/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

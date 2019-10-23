@@ -11,13 +11,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode
-@ToString
+@ToString(exclude = "tasks")
 @Entity
 public class User implements UserDetails {
     @Id
@@ -97,6 +96,9 @@ public class User implements UserDetails {
         return isActivated();
     }
 
+    private boolean isActivated() {
+        return isActivated;
+    }
     //    --------------------------------------------------------
     private boolean isAccountNonExpired;
 
