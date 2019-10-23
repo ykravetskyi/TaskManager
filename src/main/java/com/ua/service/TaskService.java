@@ -9,5 +9,7 @@ public interface TaskService {
 
     void delete(int id);
 
+    Task findOne(int id);
+
     List<Task> findAll();
 }

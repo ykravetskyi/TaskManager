@@ -24,6 +24,11 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public Task findOne(int id) {
+        return taskDAO.findTasksById(id);
+    }
+
+    @Override
     public List<Task> findAll() {
         return taskDAO.findAll();
     }

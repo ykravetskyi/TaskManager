@@ -29,7 +29,7 @@
 <form action="/delete/task/${task.getId()}" method="get">
     <button>Delete</button>
 </form>
-<form action="" method="post">
+<form action="/share/task/${task.getId()}" method="get">
     <button>Share</button>
 </form>
 </li>

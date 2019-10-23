@@ -10,6 +10,8 @@ public interface UserService extends UserDetailsService {
 
     User findUserByUsername(String username);
 
+    User findUserByEmail(String email);
+
     List<User> findAll();
 
     boolean activation(String code);
