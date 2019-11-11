@@ -16,14 +16,18 @@ import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    UserDAO userDAO;
+    private final UserDAO userDAO;
+
+    private final MailService mailService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private MailService mailService;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserServiceImpl(UserDAO userDAO, MailService mailService, PasswordEncoder passwordEncoder) {
+        this.userDAO = userDAO;
+        this.mailService = mailService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public void save(User user) {

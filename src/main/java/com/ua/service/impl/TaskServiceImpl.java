@@ -10,8 +10,12 @@ import java.util.List;
 
 @Service
 public class TaskServiceImpl implements TaskService {
+    private final TaskDAO taskDAO;
+
     @Autowired
-    TaskDAO taskDAO;
+    public TaskServiceImpl(TaskDAO taskDAO) {
+        this.taskDAO = taskDAO;
+    }
 
     @Override
     public void save(Task task) {

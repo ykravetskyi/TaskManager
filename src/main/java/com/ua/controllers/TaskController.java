@@ -16,10 +16,14 @@ import java.security.Principal;
 
 @Controller
 public class TaskController {
+    private final UserService userService;
+    private final TaskService taskService;
+
     @Autowired
-    UserService userService;
-    @Autowired
-    TaskService taskService;
+    public TaskController(UserService userService, TaskService taskService) {
+        this.userService = userService;
+        this.taskService = taskService;
+    }
 
     @GetMapping("/addTask")
     public String addTask() {

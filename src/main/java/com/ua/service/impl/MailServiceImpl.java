@@ -11,8 +11,12 @@ import javax.mail.internet.MimeMessage;
 
 @Service
 public class MailServiceImpl implements MailService {
+    private final JavaMailSender javaMailSender;
+
     @Autowired
-    private JavaMailSender javaMailSender;
+    public MailServiceImpl(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 
     @Override
     public void sendMail(String email, String text, String subject) {
